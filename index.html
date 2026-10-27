@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#fbf8f3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Gulzar&family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
 <style>
   :root{
     --wine:#6b1519;
@@ -162,13 +162,13 @@
   .fathers .f b{font-weight:700;font-size:clamp(16px,4.6vw,20px)}
   .fathers .and{font-family:var(--ar-title);font-size:26px;color:var(--gold)}
   .invite-line{font-family:var(--ar-title);font-size:clamp(25px,7vw,32px);line-height:1.7}
-  .couple-ar{font-family:'Gulzar',var(--ar-title);font-weight:400;font-size:clamp(72px,23vw,110px);line-height:1.9;display:flex;align-items:center;justify-content:center;gap:.28em;color:#8f2630}
-  .couple-ar .amp{font-size:.82em}
-  .day{font-family:var(--ar-body);font-weight:700;font-size:clamp(32px,9vw,42px);line-height:1.5;color:#8f2630}
-  .flourish{width:min(92%,440px);height:auto;margin:-4px auto 22px;display:block}
-  .hour{font-family:var(--ar-body);font-weight:700;font-size:clamp(22px,6.2vw,28px);color:#8f2630;margin-top:6px}
+  .couple-ar{font-family:var(--ar-title);font-weight:400;font-size:clamp(50px,15vw,70px);line-height:1.5;margin-top:4px}
+  .couple-ar .amp{padding:0 .25em}
+  .day{font-family:var(--ar-title);font-size:clamp(30px,8.6vw,40px)}
+  .flourish{width:min(90%,420px);height:auto;margin:0 auto 18px;display:block}
+  .hour{font-family:var(--ar-body);font-weight:700;font-size:clamp(20px,5.8vw,26px);margin-top:4px}
   .couple-sec{--beige:#bba585}
-  .couple-sec .date{color:#8f2630;letter-spacing:.04em;font-family:var(--ar-body);font-weight:700}
+  .couple-sec .date{color:var(--ink)}
   .couple-sec .ornament i{background:linear-gradient(90deg,transparent,var(--beige) 40%,var(--beige))}
   .couple-sec .ornament svg,.couple-sec .gframe svg{filter:saturate(.3) brightness(1.08)}
   .couple-sec .gframe{border-color:#cbb99c99}
@@ -351,9 +351,9 @@
   <!-- ================= Couple ================= -->
   <section class="window-bg couple-sec">
     <div class="gframe"><svg class="c1"><use href="#corner"/></svg><svg class="c2"><use href="#corner"/></svg><svg class="c3"><use href="#corner"/></svg><svg class="c4"><use href="#corner"/></svg></div>
-    <h2 class="couple-ar reveal"><span>أنس</span><span class="amp">و</span><span>سارة</span></h2>
+    <h2 class="couple-ar reveal">أنس <span class="amp">و</span> سارة</h2>
     <svg class="flourish reveal" viewBox="0 0 300 80" aria-hidden="true">
-      <defs><g id="flHalf" fill="none" stroke="#c2ad8d" stroke-width="2" stroke-linecap="round">
+      <g id="flHalf" fill="none" stroke="#c2ad8d" stroke-width="2" stroke-linecap="round">
         <path d="M156 50 C175 58 190 42 210 46 C232 50 240 64 262 60 C276 57 284 48 298 50"/>
         <path d="M172 52 C176 40 192 37 195 47 C196 53 188 55 186 49"/>
         <path d="M206 46 C208 58 220 62 226 56"/>
@@ -362,11 +362,11 @@
           <ellipse cx="226" cy="44" rx="8" ry="3" transform="rotate(-25 226 44)"/>
           <ellipse cx="246" cy="58" rx="7" ry="2.6" transform="rotate(35 246 58)"/>
           <ellipse cx="282" cy="49" rx="6" ry="2.4" transform="rotate(-15 282 49)"/>
-          <path d="M150 46 C142 32 128 26 116 30 C130 33 140 40 150 52Z" transform="translate(300 0) scale(-1 1)"/>
-          <path d="M150 40 C146 28 136 18 126 18 C136 24 142 32 148 44Z" transform="translate(300 0) scale(-1 1)"/>
+          <path d="M150 46 C158 32 172 26 184 30 C170 33 160 40 150 52Z"/>
+          <path d="M150 40 C154 28 164 18 174 18 C164 24 158 32 152 44Z"/>
         </g>
-      </g></defs>
-      <use href="#flHalf"/><use href="#flHalf" transform="translate(300 0) scale(-1 1)"/>
+      </g>
+      <use href="#flHalf" transform="translate(300 0) scale(-1 1)"/>
       <g fill="#c9b596">
         <path d="M150 6 C157 20 157 34 150 48 C143 34 143 20 150 6Z"/>
         <path d="M150 52 l7 8 -7 8 -7 -8z"/>
