@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>أنس & سارة | دعوة زفاف</title>
+<meta name="description" content="دعوة لحضور حفل زفاف أنس وسارة - ٣ تشرين الثاني ٢٠٢٦ - قاعات روز جولد">
+<meta property="og:title" content="دعوة زفاف أنس & سارة">
+<meta property="og:description" content="يسعدنا حضوركم ومشاركتكم لنا فرحة عمرنا - 3.11.2026">
+<meta name="theme-color" content="#fbf8f3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --wine:#6e171b;
+    --wine-deep:#451b1e;
+    --wine-text:#7a1c22;
+    --cream:#fbf8f3;
+    --paper:#f6f1eb;
+    --card:#f9f6f1;
+    --line:#e3cfcf;
+    --seal:#efe6dc;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Amiri',serif;color:var(--wine-text);background:var(--paper);
+    overflow-x:hidden;line-height:1.7;
+  }
+  body.locked{overflow:hidden;height:100vh}
+  img{max-width:100%;display:block}
+
+  /* ---------- Envelope ---------- */
+  #envelope{
+    position:fixed;inset:0;z-index:50;background:var(--cream);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
+    transition:opacity 1s ease .9s, visibility 0s linear 1.9s;
+  }
+  #envelope.open{opacity:0;visibility:hidden}
+  .dust{position:absolute;width:4px;height:4px;border-radius:50%;background:#d8d2cc;opacity:.6}
+  .env-wrap{position:relative;width:min(80vw,400px);aspect-ratio:400/548;perspective:1600px}
+  .env-card{
+    position:absolute;inset:0 -5px;background:#f3ede4;border-radius:10px;
+    box-shadow:0 18px 40px rgba(60,20,20,.25);
+  }
+  .door{
+    position:absolute;top:0;bottom:0;width:50%;
+    background:linear-gradient(90deg,#4a1d20,#43191c 60%,#3d1619);
+    transition:transform 1.4s cubic-bezier(.65,0,.35,1);
+    backface-visibility:hidden;
+  }
+  .door.right{right:0;border-radius:0 10px 10px 0;transform-origin:right center;
+    background:linear-gradient(90deg,#3e1719 0%,#471b1e 8%,#491c1f 100%);
+    box-shadow:inset 1px 0 0 rgba(0,0,0,.25)}
+  .door.left{left:0;border-radius:10px 0 0 10px;transform-origin:left center;
+    background:linear-gradient(90deg,#4a1d20 0%,#43191c 85%,#3a1518 100%)}
+  #envelope.open .door.right{transform:rotateY(-110deg)}
+  #envelope.open .door.left{transform:rotateY(110deg)}
+  .seal{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:26%;aspect-ratio:1;border-radius:50%;border:none;cursor:pointer;z-index:2;
+    background:radial-gradient(circle at 40% 35%,#f8f2ec,#ebe0d6 70%,#ddd0c3);
+    box-shadow:0 8px 18px rgba(0,0,0,.35), inset 0 -4px 6px rgba(0,0,0,.08), inset 0 3px 4px #fff;
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .6s ease, opacity .6s ease;
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  .seal::before{content:"";position:absolute;inset:9%;border-radius:50%;
+    background:radial-gradient(circle at 50% 40%,#f0e7df,#e6dbd1);box-shadow:inset 0 2px 4px rgba(0,0,0,.12)}
+  .seal span{position:relative;font-family:'Great Vibes',cursive;font-size:clamp(28px,9vw,44px);color:var(--wine-text);direction:ltr}
+  #envelope.open .seal{transform:translate(-50%,-50%) scale(1.4);opacity:0;animation:none}
+  @keyframes pulse{50%{transform:translate(-50%,-50%) scale(1.04)}}
+  .env-hint{font-size:clamp(24px,7vw,32px);color:var(--wine-text);opacity:.85;animation:fadeHint 2.4s ease-in-out infinite}
+  @keyframes fadeHint{50%{opacity:.5}}
+
+  /* ---------- Music button ---------- */
+  #music{
+    position:fixed;left:auto;right:12px;bottom:calc(24px + env(safe-area-inset-bottom));z-index:60;
+    width:52px;height:52px;border-radius:50%;cursor:pointer;
+    background:var(--wine);border:2px solid #b45a5e;color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 16px rgba(110,23,27,.35);transition:background .3s, border-color .3s;
+  }
+  #music.ghost{background:transparent;border-color:rgba(255,255,255,.6);box-shadow:none}
+  #music svg{width:20px;height:20px;fill:#fff}
+
+  /* ---------- Sections ---------- */
+  section{position:relative;text-align:center}
+  .window-bg{
+    background:url('images/hero.jpg') center/cover no-repeat, url('images/window.svg') center/cover no-repeat, #f3ebe2;
+    min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:90px 20px 60px;
+  }
+  .window-bg::before{content:"";position:absolute;inset:0;background:rgba(255,252,248,.18)}
+  .window-bg > *{position:relative}
+  .bismillah{font-size:clamp(34px,10vw,46px);font-weight:700;margin-bottom:24px}
+  .verse{font-size:clamp(19px,5.4vw,24px);line-height:2;margin-bottom:22px}
+  .divider{display:flex;align-items:center;justify-content:center;gap:4px;margin:6px auto 30px;width:min(82%,380px)}
+  .divider i{flex:1;height:1px;background:var(--wine-text);opacity:.7}
+  .divider svg{width:26px;height:26px}
+  .host{font-size:clamp(30px,9vw,40px);font-weight:700;margin-bottom:28px}
+  .fathers{display:flex;justify-content:space-between;align-items:center;width:100%;max-width:480px;gap:8px;font-size:clamp(15px,4.4vw,19px);margin-bottom:26px}
+  .fathers span{white-space:nowrap}
+  .invite-line{font-size:clamp(23px,6.6vw,30px)}
+
+  .couple{font-family:'Great Vibes',cursive;font-size:clamp(60px,18vw,90px);line-height:1.2;direction:ltr;margin-bottom:6px}
+  .couple-ar{font-size:clamp(34px,10vw,46px);font-weight:700;margin-bottom:10px}
+  .day{font-size:clamp(28px,8vw,36px)}
+
+  .scroll-band{background:var(--paper);padding:40px 20px 70px}
+  .date{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(34px,10vw,44px);letter-spacing:4px;direction:ltr;margin-bottom:8px}
+  .scroll-text{font-size:clamp(32px,9vw,40px)}
+  .chev{width:34px;height:34px;margin:6px auto 0;stroke:var(--wine-text);fill:none;stroke-width:1.6;animation:bounce 1.8s ease-in-out infinite}
+  @keyframes bounce{50%{transform:translateY(6px)}}
+
+  .block{padding:70px 20px;background:var(--paper)}
+  .title{font-size:clamp(32px,9vw,42px);font-weight:400;margin-bottom:34px}
+
+  .countdown{display:flex;gap:10px;justify-content:center;max-width:460px;margin:0 auto}
+  .cd{flex:1;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 4px 14px}
+  .cd b{display:block;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(32px,9.5vw,42px);line-height:1.1}
+  .cd small{font-size:clamp(15px,4.4vw,18px);opacity:.85}
+
+  .cards{display:flex;flex-direction:column;gap:28px;max-width:460px;margin:0 auto}
+  .card{background:#f1ebe5;border:1px solid #cdaeb0;border-radius:30px;padding:30px 20px 34px}
+  .icon{width:66px;height:66px;border-radius:18px;background:var(--wine);margin:0 auto 18px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 16px rgba(110,23,27,.25)}
+  .icon svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .card h3{font-size:clamp(28px,8vw,34px);font-weight:400;margin-bottom:12px}
+  .card p{font-size:clamp(19px,5.4vw,22px)}
+
+  .venue{
+    min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;
+    background:linear-gradient(rgba(70,40,90,.45),rgba(70,40,90,.45)),url('images/venue.jpg') center/cover no-repeat,
+      radial-gradient(ellipse at 30% 30%,#c98a6e,transparent 55%),radial-gradient(ellipse at 70% 60%,#7b4e8a,transparent 60%),#4b2f52;
+    color:#fff;
+  }
+  .venue small{font-size:clamp(20px,5.6vw,26px);color:#f2dccb}
+  .venue h2{font-size:clamp(48px,14vw,64px);font-weight:400;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+
+  .map-frame{max-width:460px;margin:0 auto;padding:8px;background:#fbf6f2;border:1px solid #eadbd6;border-radius:22px;box-shadow:0 6px 18px rgba(110,23,27,.06)}
+  .map-frame iframe{display:block;width:100%;height:clamp(320px,95vw,440px);border:0;border-radius:16px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:12px;
+    background:var(--wine);color:#fff;text-decoration:none;border:none;cursor:pointer;
+    font-family:'Amiri',serif;font-size:clamp(20px,5.8vw,24px);border-radius:999px;padding:12px 30px;
+    box-shadow:0 8px 18px rgba(110,23,27,.25);transition:transform .2s, opacity .2s;
+  }
+  .btn:active{transform:scale(.97)}
+  .btn svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .map-btn{margin-top:30px;min-width:min(250px,60vw)}
+  .welcome{font-size:clamp(22px,6.4vw,27px);line-height:1.9;max-width:440px;margin:28px auto 0}
+
+  .heart{width:34px;height:34px;stroke:var(--wine-text);fill:none;stroke-width:1.4;margin:0 auto 14px;display:block}
+  .wish-sub{font-size:clamp(18px,5vw,21px);margin:-20px 0 34px;opacity:.9}
+  .wish{max-width:460px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:30px 20px 24px;text-align:right}
+  .wish label{display:block;font-size:clamp(19px,5.4vw,22px);margin-bottom:12px}
+  .wish textarea{
+    width:100%;height:240px;resize:vertical;border:1px solid #dfc6c8;border-radius:18px;background:#fffdfa;
+    padding:16px;font-family:'Amiri',serif;font-size:18px;color:var(--wine-text);outline:none;
+  }
+  .wish textarea::placeholder{color:#9c8a8a}
+  .wish textarea:focus{border-color:var(--wine)}
+  .wish .btn{width:100%;margin-top:24px}
+  .wish .note{text-align:center;font-size:clamp(15px,4.2vw,17px);margin-top:14px;opacity:.85}
+  .shake{animation:shake .4s}
+  @keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+
+  footer{background:var(--wine);color:#fff;text-align:center;padding:48px 20px calc(80px + env(safe-area-inset-bottom))}
+  footer .mono{font-family:'Great Vibes',cursive;font-size:clamp(64px,18vw,84px);direction:ltr;line-height:1.2}
+  footer p{font-family:'Cormorant Garamond',serif;letter-spacing:3px;opacity:.8;margin-top:6px}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease, transform .9s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body class="locked">
+
+<!-- Envelope -->
+<div id="envelope" role="dialog" aria-label="افتح الدعوة">
+  <div class="env-wrap">
+    <div class="env-card"></div>
+    <div class="door left"></div>
+    <div class="door right"></div>
+    <button class="seal" id="seal" aria-label="افتح الدعوة"><span>A&amp;S</span></button>
+  </div>
+  <p class="env-hint">المس الختم لفتح الدعوة</p>
+</div>
+
+<button id="music" aria-label="تشغيل الموسيقى">
+  <svg id="icon-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg>
+  <svg id="icon-pause" viewBox="0 0 24 24" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+</button>
+<audio id="audio" src="audio/music.mp3" loop preload="auto"></audio>
+
+<main>
+  <!-- Hero -->
+  <section class="window-bg">
+    <h1 class="bismillah reveal">بسم الله الرحمن الرحيم</h1>
+    <p class="verse reveal">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا<br>لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p>
+    <div class="divider reveal" aria-hidden="true">
+      <i></i>
+      <svg viewBox="0 0 26 26" fill="none" stroke="#7a1c22" stroke-width="1"><path d="M13 1 L25 13 L13 25 L1 13 Z"/><path d="M13 6 L20 13 L13 20 L6 13 Z"/><circle cx="13" cy="13" r="1.6" fill="#7a1c22"/></svg>
+      <i></i>
+    </div>
+    <h2 class="host reveal">يتشرف كلاً من</h2>
+    <div class="fathers reveal">
+      <span>السيد منتصر طاهر عوض</span>
+      <span>و</span>
+      <span>السيد مهند خليل الجلاد</span>
+    </div>
+    <p class="invite-line reveal">بدعوتكم لحضور حفل زفاف ابنيهما</p>
+  </section>
+  <section class="scroll-band">
+    <p class="scroll-text">قم بالتمرير للأسفل</p>
+    <svg class="chev" viewBox="0 0 24 24"><path d="M5 9l7 7 7-7"/></svg>
+  </section>
+
+  <!-- Couple & date -->
+  <section class="window-bg">
+    <p class="couple reveal">Anas &amp; Sara</p>
+    <h2 class="couple-ar reveal">أنس و سارة</h2>
+    <div class="divider reveal" aria-hidden="true">
+      <i></i>
+      <svg viewBox="0 0 26 26" fill="none" stroke="#7a1c22" stroke-width="1"><path d="M13 1 L25 13 L13 25 L1 13 Z"/><path d="M13 6 L20 13 L13 20 L6 13 Z"/><circle cx="13" cy="13" r="1.6" fill="#7a1c22"/></svg>
+      <i></i>
+    </div>
+    <p class="day reveal">يوم الثلاثاء</p>
+  </section>
+  <section class="scroll-band">
+    <p class="date">3.11.2026</p>
+    <p class="scroll-text">قم بالتمرير للأسفل</p>
+    <svg class="chev" viewBox="0 0 24 24"><path d="M5 9l7 7 7-7"/></svg>
+  </section>
+
+  <!-- Countdown -->
+  <section class="block" style="background:#f6f1eb">
+    <h2 class="title reveal">العد التنازلي ليومنا المنتظر</h2>
+    <div class="countdown reveal">
+      <div class="cd"><b id="cd-d">00</b><small>يوم</small></div>
+      <div class="cd"><b id="cd-h">00</b><small>ساعة</small></div>
+      <div class="cd"><b id="cd-m">00</b><small>دقيقة</small></div>
+      <div class="cd"><b id="cd-s">00</b><small>ثانية</small></div>
+    </div>
+  </section>
+
+  <!-- Details -->
+  <section class="block" style="padding-top:40px">
+    <h2 class="title reveal">التفاصيل</h2>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>حفل الزفاف</h3>
+        <p>يبدأ الحفل الساعة ٨:٣٠ مساءً</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
+        <h3>الموقع</h3>
+        <p>قاعات روز جولد</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Venue -->
+  <section class="venue">
+    <small class="reveal">موقع الحفل</small>
+    <h2 class="reveal">قاعات روز جولد</h2>
+  </section>
+
+  <!-- Map -->
+  <section class="block" style="background:#f8f1ec">
+    <h2 class="title reveal">كيفية الوصول</h2>
+    <div class="map-frame reveal">
+      <iframe src="https://maps.google.com/maps?q=Rose%20Gold%20Hall%20Amman&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="خريطة قاعات روز جولد" allowfullscreen></iframe>
+    </div>
+    <a class="btn map-btn reveal" href="https://www.google.com/maps/search/?api=1&query=Rose%20Gold%20Hall%20Amman" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+      فتح في خرائط جوجل
+    </a>
+    <p class="welcome reveal">أهلاً وسهلاً بكم، يسعدنا حضوركم ومشاركتكم لنا فرحة عمرنا، ونوماً هنيئاً لأطفالكم. ♥</p>
+  </section>
+
+  <!-- Wishes -->
+  <section class="block" style="padding-top:40px">
+    <svg class="heart reveal" viewBox="0 0 24 24"><path d="M12 20.5s-8-4.9-8-11A4.5 4.5 0 0 1 12 6.7 4.5 4.5 0 0 1 20 9.5c0 6.1-8 11-8 11z"/></svg>
+    <h2 class="title reveal">كلمة من القلب</h2>
+    <p class="wish-sub reveal">شاركونا فرحتنا واتركوا تهنئة.</p>
+    <form class="wish reveal" id="wish-form">
+      <label for="wish-text">تهنئتكم للعروسين</label>
+      <textarea id="wish-text" placeholder="اكتبوا أمنياتكم وكلماتكم الجميلة هنا..."></textarea>
+      <button class="btn" type="submit">
+        <svg viewBox="0 0 24 24"><path d="M21 3 10 14"/><path d="M21 3l-7 18-4-7-7-4z"/></svg>
+        إرسال التهنئة عبر واتساب
+      </button>
+      <p class="note">تُفتح التهنئة في واتساب لإرسالها إلى العروسين.</p>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p class="mono">A&amp;S</p>
+  <p>3.11.2026</p>
+</footer>
+
+<script>
+  // Wedding: Tuesday 3 Nov 2026, 8:30 PM Amman time
+  const WEDDING = new Date('2026-11-03T20:30:00+03:00').getTime();
+  const WHATSAPP = '962796529567'; // 0796529567
+
+  const audio = document.getElementById('audio');
+  const musicBtn = document.getElementById('music');
+  const playIcon = document.getElementById('icon-play');
+  const pauseIcon = document.getElementById('icon-pause');
+
+  function syncMusicIcon(){
+    const playing = !audio.paused;
+    playIcon.style.display = playing ? 'none' : '';
+    pauseIcon.style.display = playing ? '' : 'none';
+    musicBtn.setAttribute('aria-label', playing ? 'إيقاف الموسيقى' : 'تشغيل الموسيقى');
+  }
+  audio.addEventListener('play', syncMusicIcon);
+  audio.addEventListener('pause', syncMusicIcon);
+  musicBtn.addEventListener('click', () => {
+    if (audio.paused) audio.play().catch(() => {}); else audio.pause();
+  });
+
+  // Envelope
+  const envelope = document.getElementById('envelope');
+  function openEnvelope(){
+    if (envelope.classList.contains('open')) return;
+    envelope.classList.add('open');
+    audio.play().catch(() => {});
+    setTimeout(() => {
+      document.body.classList.remove('locked');
+      window.scrollTo(0, 0);
+    }, 1400);
+  }
+  document.getElementById('seal').addEventListener('click', openEnvelope);
+  document.querySelector('.env-wrap').addEventListener('click', openEnvelope);
+
+  // Floating dust on envelope screen
+  for (let i = 0; i < 6; i++){
+    const d = document.createElement('span');
+    d.className = 'dust';
+    d.style.left = Math.random() * 100 + '%';
+    d.style.top = Math.random() * 100 + '%';
+    envelope.appendChild(d);
+  }
+
+  // Countdown
+  const pad = n => String(n).padStart(2, '0');
+  const els = ['d','h','m','s'].map(k => document.getElementById('cd-' + k));
+  function tick(){
+    let diff = Math.max(0, WEDDING - Date.now());
+    const d = Math.floor(diff / 864e5); diff %= 864e5;
+    const h = Math.floor(diff / 36e5);  diff %= 36e5;
+    const m = Math.floor(diff / 6e4);   diff %= 6e4;
+    const s = Math.floor(diff / 1e3);
+    [d, h, m, s].forEach((v, i) => els[i].textContent = pad(v));
+  }
+  tick(); setInterval(tick, 1000);
+
+  // WhatsApp wish
+  document.getElementById('wish-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const ta = document.getElementById('wish-text');
+    const msg = ta.value.trim();
+    if (!msg){
+      ta.classList.remove('shake'); void ta.offsetWidth; ta.classList.add('shake'); ta.focus();
+      return;
+    }
+    window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg), '_blank');
+  });
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: .15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Ghost music button over footer
+  new IntersectionObserver(([en]) => musicBtn.classList.toggle('ghost', en.isIntersecting), { threshold: .3 })
+    .observe(document.querySelector('footer'));
+</script>
+</body>
+</html>
