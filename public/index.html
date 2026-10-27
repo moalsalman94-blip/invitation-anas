@@ -174,17 +174,17 @@
   .fathers .and{font-family:var(--ar-title);font-size:26px;color:var(--gold)}
   .invite-line{font-family:var(--ar-title);font-size:clamp(25px,7vw,32px);line-height:1.7}
 
-  .couple{font-family:var(--script);font-weight:400;font-size:clamp(50px,14.5vw,88px);line-height:1.25;direction:ltr;padding:0 .15em;white-space:nowrap}
-  .couple .amp{font-family:var(--mono);font-size:.8em;margin:0 .02em;color:var(--gold)}
-  .couple-ar{font-family:var(--ar-title);font-weight:400;font-size:clamp(40px,12vw,56px);line-height:1.5;margin-top:4px}
+  .couple-ar{font-family:var(--ar-title);font-weight:400;font-size:clamp(50px,15vw,70px);line-height:1.5;margin-top:4px}
   .couple-ar .amp{color:var(--gold);font-size:.75em;padding:0 .2em}
   .day{font-family:var(--ar-title);font-size:clamp(28px,8vw,36px)}
 
-  .scroll-band{background:var(--paper);padding:44px 20px 74px}
-  .date{background-image:var(--gold-grad-dark);font-variant-numeric:lining-nums;font-family:var(--num);font-weight:600;font-size:clamp(38px,11vw,50px);letter-spacing:.14em;direction:ltr;line-height:1.3;margin-bottom:6px}
-  .scroll-text{font-family:var(--ar-title);font-size:clamp(30px,8.6vw,38px);line-height:1.6}
-  .chev{width:32px;height:32px;margin:8px auto 0;stroke:var(--ink);fill:none;stroke-width:1.4;animation:bounce 1.8s ease-in-out infinite;display:block}
-  @keyframes bounce{50%{transform:translateY(7px)}}
+  .couple-sec{--beige:#bba585}
+  .couple-sec .kicker,.couple-sec .couple-ar .amp,.couple-sec .date{color:var(--beige)}
+  .couple-sec .ornament i{background:linear-gradient(90deg,transparent,var(--beige) 40%,var(--beige))}
+  .couple-sec .ornament svg,.couple-sec .gframe svg{filter:saturate(.3) brightness(1.08)}
+  .couple-sec .gframe{border-color:#cbb99c99}
+  .couple-sec .gframe::before{border-color:#cbb99c55}
+  .date{font-variant-numeric:lining-nums;font-family:var(--num);font-weight:600;font-size:clamp(38px,11vw,50px);letter-spacing:.14em;direction:ltr;line-height:1.3;margin-top:6px}
 
   .block{padding:80px 20px;background:var(--paper)}
   .kicker{font-family:var(--caps);font-size:11px;letter-spacing:.45em;color:var(--gold);direction:ltr;margin-bottom:6px}
@@ -256,7 +256,8 @@
   @keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 
   footer{position:relative;background:radial-gradient(ellipse at 50% 0%,#86222a,#5c1217 70%);color:#fff;text-align:center;padding:56px 20px calc(86px + env(safe-area-inset-bottom));overflow:hidden}
-  footer .mono{font-family:var(--mono);letter-spacing:-.06em;font-size:clamp(76px,21vw,100px);direction:ltr;line-height:1.2;padding:0 .2em}
+  footer .mono .amp{font-family:var(--mono);font-size:.6em;vertical-align:.25em;margin:0 .02em}
+  footer .mono{font-family:var(--script);font-size:clamp(76px,21vw,100px);direction:ltr;line-height:1.2;padding:0 .2em}
   footer .ornament{margin:4px auto 14px;width:min(70%,280px)}
   footer .ornament i{background:linear-gradient(90deg,transparent,#ecd49a 40%,#ecd49a)}
   footer p{font-variant-numeric:lining-nums;font-family:var(--num);font-weight:500;font-size:20px;letter-spacing:.3em;color:#f2dcb8;direction:ltr}
@@ -281,8 +282,8 @@
       <stop offset="0" stop-color="#f4ebe0"/><stop offset="1" stop-color="#e2d4c3"/>
     </radialGradient>
     <filter id="waxEdge" x="-10%" y="-10%" width="120%" height="120%">
-      <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="7"/>
-      <feDisplacementMap in="SourceGraphic" scale="9"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="1" seed="7"/>
+      <feDisplacementMap in="SourceGraphic" scale="7"/>
     </filter>
     <filter id="emboss" x="-20%" y="-20%" width="140%" height="140%">
       <feGaussianBlur in="SourceAlpha" stdDeviation=".8" result="b"/>
@@ -295,7 +296,7 @@
       <circle cx="100" cy="100" r="74" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2" transform="translate(0 1.5)"/>
       <circle cx="100" cy="100" r="74" fill="none" stroke="#bfa98e" stroke-opacity=".6" stroke-width="1.5"/>
       <circle cx="100" cy="100" r="66" fill="none" stroke="url(#gGold)" stroke-width="1.2" stroke-dasharray="2 4"/>
-      <text x="100" y="122" text-anchor="middle" font-family="Great Vibes, cursive" font-size="66" fill="#7a1c22" filter="url(#emboss)">A<tspan font-size="34" dy="-14">&amp;</tspan><tspan dy="14">S</tspan></text>
+      <text x="93" y="125" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="68" fill="#7a1c22" filter="url(#emboss)">A<tspan font-family="Great Vibes, cursive" font-size="36" dy="-14" dx="3">&amp;</tspan><tspan dy="14" dx="3">S</tspan></text>
       <ellipse cx="72" cy="58" rx="26" ry="11" fill="#fff" opacity=".55" transform="rotate(-30 72 58)"/>
     </symbol>
     <symbol id="corner" viewBox="0 0 64 64">
@@ -371,24 +372,14 @@
     </div>
     <p class="invite-line reveal">بدعوتكم لحضور حفل زفاف ابنيهما</p>
   </section>
-  <section class="scroll-band">
-    <p class="scroll-text">قم بالتمرير للأسفل</p>
-    <svg class="chev" viewBox="0 0 24 24"><path d="M5 9l7 7 7-7"/></svg>
-  </section>
-
   <!-- ================= Couple ================= -->
-  <section class="window-bg">
+  <section class="window-bg couple-sec">
     <div class="gframe"><svg class="c1"><use href="#corner"/></svg><svg class="c2"><use href="#corner"/></svg><svg class="c3"><use href="#corner"/></svg><svg class="c4"><use href="#corner"/></svg></div>
     <p class="kicker reveal">TOGETHER WITH THEIR FAMILIES</p>
-    <p class="couple reveal">Anas <span class="amp">&amp;</span> Sara</p>
     <h2 class="couple-ar reveal">أنس <span class="amp">&</span> سارة</h2>
     <div class="ornament reveal" aria-hidden="true"><i></i><svg><use href="#orn"/></svg><i></i></div>
     <p class="day reveal">يوم الثلاثاء</p>
-  </section>
-  <section class="scroll-band">
-    <p class="date gold-text">3.11.2026</p>
-    <p class="scroll-text">قم بالتمرير للأسفل</p>
-    <svg class="chev" viewBox="0 0 24 24"><path d="M5 9l7 7 7-7"/></svg>
+    <p class="date reveal">3.11.2026</p>
   </section>
 
   <!-- ================= Countdown ================= -->
@@ -465,7 +456,7 @@
 </main>
 
 <footer>
-  <p class="mono gold-text">A&amp;S</p>
+  <p class="mono gold-text">A<span class="amp">&amp;</span>S</p>
   <div class="ornament" aria-hidden="true"><i></i><svg><use href="#orn"/></svg><i></i></div>
   <p>03 . 11 . 2026</p>
   <p class="thanks">بانتظاركم لتكتمل فرحتنا</p>
